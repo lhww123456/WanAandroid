@@ -1,6 +1,6 @@
 package com.lhw.wanaandroid.login.bean;
 
-public class BaseResponse {
+public class BaseResponse<U> {
     /**
      * Copyright 2022 bejson.com
      */
@@ -13,15 +13,15 @@ public class BaseResponse {
      */
 
 
-    private Data data;
+    private UserData data;
     private int errorCode;
     private String errorMsg;
 
-    public void setData(Data data) {
+    public void setData(UserData data) {
         this.data = data;
     }
 
-    public Data getData() {
+    public UserData getData() {
         return data;
     }
 

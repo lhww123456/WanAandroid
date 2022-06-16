@@ -10,8 +10,9 @@ public class MyReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         String username = intent.getStringExtra("username");
+        int coinCount = intent.getIntExtra("coin",0);
         if (username != null && ilogin != null) { //当用户名不为空，登陆成功
-            ilogin.success(username);
+            ilogin.success(username,coinCount);
         } else if (ilogin != null) {
             ilogin.faild();
         }
@@ -19,7 +20,7 @@ public class MyReceiver extends BroadcastReceiver {
 
     //定义接口
     public interface Ilogin {
-        void success(String username);
+        void success(String username,int coin);
 
         void faild();
 

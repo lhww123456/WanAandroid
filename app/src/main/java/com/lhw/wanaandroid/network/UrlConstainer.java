@@ -82,6 +82,11 @@ public class UrlConstainer {
     public static final String CHAPTERS = "wxarticle/chapters/json";
 
     /**
+     * 公众号
+     */
+    public static final String NAVI = "navi/json";
+
+    /**
      * 公众号文章列表
      */
     public static final String CHAPTER_LIST = "wxarticle/list/{id}/{page}/json";
@@ -92,8 +97,14 @@ public class UrlConstainer {
     public static final String PROJECT_CATE = "project/tree/json";
 
     /**
-     * 项目
+     * 获取个人积分，需要登录后访问
      */
-    public static final String PROJECT = "project/list/{page}/json";
+    public static final String COIN = "lg/coin/userinfo/json";
+
+    /**
+     * 获取个人积分获取列表，需要登录后访问
+     */
+    public static final String COINLIST = "lg/coin/list/{page}/json";
+
 
 }

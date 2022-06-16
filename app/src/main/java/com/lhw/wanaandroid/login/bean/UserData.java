@@ -2,7 +2,7 @@ package com.lhw.wanaandroid.login.bean;
 
 import java.util.List;
 
-public class Data {
+public class UserData {
 
     /**
      * Copyright 2022 bejson.com

@@ -163,11 +163,6 @@ public class HomeRecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.Vi
 
         void onItemClick(ArticleDetail datas);
 
-        /**
-         * <p>收藏点击事件</p>
-         * @param view 点击的view
-         * @param position 点击的位置
-         */
-        void onCollectionClick(View view, int position);
+
     }
 }

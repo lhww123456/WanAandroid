@@ -29,7 +29,7 @@ public  class NavPresenter implements NavContract.INavPresenter {
                                @Override
                                public void accept(BaseBean<List<NavCategoryBean>> navCategoryBeanNavBean) throws Throwable {
                                    navView.getNavSuccess(navCategoryBeanNavBean.getData());
-                                   Log.e("lhhww", "成功: "+navCategoryBeanNavBean.getData() );
+
                                }
                            }
                         , new Consumer<Throwable>() {

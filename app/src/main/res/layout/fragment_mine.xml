@@ -16,8 +16,10 @@
 
         <LinearLayout
             android:id="@+id/login_go"
+            android:layout_gravity="center"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="vertical">
             <ImageView
                 android:id="@+id/img_avatar"
@@ -38,7 +40,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
                 android:gravity="left"
-                android:text="手机号：19999999999"
+                android:text=""
                 android:textColor="@color/white"
                 android:visibility="gone"
                 android:textSize="13sp" />

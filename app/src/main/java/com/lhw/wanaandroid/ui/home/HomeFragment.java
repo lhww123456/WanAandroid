@@ -79,6 +79,8 @@ public class HomeFragment extends BaseFragment implements HomeContract.IHomeView
 
         homeRecycleViewAdapter = new HomeRecycleViewAdapter(recyclerView,getContext(), dataList, bannerData);
         homeRecycleViewAdapter.setOnItemClickListener(this);
+
+
         recyclerView.setAdapter(homeRecycleViewAdapter);
 
         homePresenter = new HomePresenter(this);
@@ -93,11 +95,6 @@ public class HomeFragment extends BaseFragment implements HomeContract.IHomeView
         intent.putExtra(WebViewActivity.WEB_URL,datas.getLink());
         intent.putExtra("titile",datas.getTitle());
         startActivity(intent);
-    }
-
-    @Override //TODO 暂未实现
-    public void onCollectionClick(View view, int position) {
-
     }
 
     @Override

@@ -28,8 +28,13 @@
         <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/drawable/selector_icon_choose_txt_bg.xml" value="0.1075" />
         <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/drawable/shape_icon_choose_select.xml" value="0.1075" />
         <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/drawable/system_tab_selsctor.xml" value="0.124" />
+        <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/activity_about.xml" value="0.19635416666666666" />
+        <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/activity_about2.xml" value="0.18177083333333333" />
+        <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/activity_about_me.xml" value="0.19635416666666666" />
+        <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/activity_article_collection.xml" value="0.147265625" />
         <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/activity_auth.xml" value="0.1524390243902439" />
         <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/activity_base.xml" value="0.19635416666666666" />
+        <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/activity_coin.xml" value="0.18177083333333333" />
         <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/activity_login2.xml" value="0.19635416666666666" />
         <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/activity_main.xml" value="0.18" />
@@ -40,12 +45,13 @@
         <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/activity_web_view.xml" value="0.22" />
         <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/article_item.xml" value="0.19635416666666666" />
         <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/bannerlayout.xml" value="0.19635416666666666" />
+        <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/content_about.xml" value="0.25" />
         <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/fragment_base_article.xml" value="0.19635416666666666" />
         <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/fragment_home.xml" value="0.19635416666666666" />
         <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/fragment_home1.xml" value="0.19635416666666666" />
         <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/fragment_interlocution.xml" value="0.19635416666666666" />
         <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/fragment_login.xml" value="0.19635416666666666" />
-        <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/fragment_mine.xml" value="0.33" />
+        <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/fragment_mine.xml" value="0.1" />
         <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/fragment_nav.xml" value="0.19635416666666666" />
         <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/fragment_question.xml" value="0.19635416666666666" />
         <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/fragment_register.xml" value="0.19635416666666666" />
@@ -58,6 +64,7 @@
         <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/home_recycleview_image.xml" value="0.19635416666666666" />
         <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/home_recycleview_item.xml" value="0.19635416666666666" />
         <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/home_recycleview_text.xml" value="0.19635416666666666" />
+        <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/icon_item.xml" value="0.19635416666666666" />
         <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/item_flex_item_nav.xml" value="0.19635416666666666" />
         <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/item_item_button.xml" value="0.19635416666666666" />
         <entry key="..\:/program/Android/code/WanAandroid/app/src/main/res/layout/item_nav_item.xml" value="0.19635416666666666" />

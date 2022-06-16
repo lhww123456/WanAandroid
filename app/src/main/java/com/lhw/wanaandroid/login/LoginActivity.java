@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.lhw.wanaandroid.R;
+import com.lhw.wanaandroid.login.login.LoginFragment;
+import com.lhw.wanaandroid.login.register.RegisterFragment;
 import com.lhw.wanaandroid.util.TabLayoutMediator;
 
 import java.util.ArrayList;
