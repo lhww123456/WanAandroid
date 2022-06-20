@@ -3,7 +3,7 @@ package com.lhw.wanaandroid.ui.question;
 
 import com.lhw.wanaandroid.bean.ArticleDetail;
 import com.lhw.wanaandroid.bean.Articles;
-import com.lhw.wanaandroid.bean.BaseBean;
+import com.lhw.wanaandroid.bean.BaseResponse;
 
 import java.util.List;
 
@@ -29,7 +29,7 @@ public interface QuestionContract {
          * <p>获取数据</p>
          * @return banner数据,article数据
          */
-        Observable<BaseBean<Articles>> getQuestionData(int page);
+        Observable<BaseResponse<Articles>> getQuestionData(int page);
     }
 
     interface IQuestionView  {

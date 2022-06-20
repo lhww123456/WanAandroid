@@ -14,21 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 
-
-
-import android.util.Log;
-
-
-import com.lhw.wanaandroid.util.ReflectUtil;
-import com.lhw.wanaandroid.util.ToastUtil;
-
-import butterknife.ButterKnife;
-
-
-/**
- *
- *
- */
 public abstract class BaseFragment extends Fragment {
 
     View containerView;

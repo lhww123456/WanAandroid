@@ -10,6 +10,7 @@ import com.google.android.material.tabs.TabLayout;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.lhw.wanaandroid.R;
 import com.lhw.wanaandroid.login.login.LoginFragment;
@@ -27,7 +28,7 @@ public class LoginActivity extends AppCompatActivity {
     TabLayout tabLayout;
     ViewPager2 viewPager2;
     ImageButton imageButton;
-
+ImageView imageView ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +36,8 @@ public class LoginActivity extends AppCompatActivity {
 
         viewPager2 = findViewById(R.id.viewpager2);
         tabLayout = findViewById(R.id.tablayout);
-        imageButton = findViewById(R.id.back_to_mine);
+        imageView = findViewById(R.id.back_to_mine);
+
         viewPager2.setOrientation(ViewPager2.ORIENTATION_HORIZONTAL);
         List<Fragment> fragments = new ArrayList<>();
         LoginFragment fragment1 = new LoginFragment();
@@ -71,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         }).attach();
         //最后一定要attach()
-        imageButton.setOnClickListener(new View.OnClickListener() {
+        imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();

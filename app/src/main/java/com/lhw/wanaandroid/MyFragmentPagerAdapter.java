@@ -18,14 +18,21 @@ public class MyFragmentPagerAdapter extends FragmentStateAdapter {
         fragmentList = fragments;
     }
 
+    public void update(List<Fragment> fragments){
+        this.fragmentList = fragments;
+        notifyDataSetChanged();
+    }
     @NonNull
     @Override
     public Fragment createFragment(int position) {
         return fragmentList.get(position);
+
     }
 
     @Override
     public int getItemCount() {
         return fragmentList.size();
     }
+
+
 }

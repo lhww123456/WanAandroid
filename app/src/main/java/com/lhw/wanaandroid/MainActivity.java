@@ -49,7 +49,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         fragments.add(new MineFragment());
 
         //ViewPager2构建Adapter
-        MyFragmentPagerAdapter myFragmentPagerAdapter = new MyFragmentPagerAdapter(getSupportFragmentManager(),getLifecycle(),fragments);
+        MyFragmentPagerAdapter myFragmentPagerAdapter =
+                new MyFragmentPagerAdapter(getSupportFragmentManager(),getLifecycle(),fragments);
         viewPager2.setAdapter(myFragmentPagerAdapter);
         //ViewPager2提供的滑动监听
         viewPager2.registerOnPageChangeCallback(new ViewPager2.OnPageChangeCallback() {

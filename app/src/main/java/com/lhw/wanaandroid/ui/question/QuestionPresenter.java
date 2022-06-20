@@ -5,7 +5,7 @@ import android.util.Log;
 
 import com.lhw.wanaandroid.bean.ArticleDetail;
 import com.lhw.wanaandroid.bean.Articles;
-import com.lhw.wanaandroid.bean.BaseBean;
+import com.lhw.wanaandroid.bean.BaseResponse;
 
 import java.util.List;
 
@@ -27,9 +27,9 @@ public  class QuestionPresenter implements QuestionContract.IQuestionPresenter {
         questionModel.getQuestionData(page)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<BaseBean<Articles>>() {
+                .subscribe(new Consumer<BaseResponse<Articles>>() {
                     @Override
-                    public void accept(BaseBean<Articles> questionBaseBean) throws Throwable {
+                    public void accept(BaseResponse<Articles> questionBaseBean) throws Throwable {
                         Articles data = questionBaseBean.getData();
                         List<ArticleDetail> datas = data.getDatas();
 //                        Log.e("lhww_question", "accept: "+data );

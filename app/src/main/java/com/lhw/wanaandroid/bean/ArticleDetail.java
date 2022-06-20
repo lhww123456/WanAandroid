@@ -1,10 +1,22 @@
 package com.lhw.wanaandroid.bean;
 
+import java.io.Serializable;
+
 /**
  * 具体文章详情类
  */
-public class ArticleDetail {
+public class ArticleDetail implements Serializable {
     private String apkLink;
+
+    public int getOriginId() {
+        return originId;
+    }
+
+    public void setOriginId(int originId) {
+        this.originId = originId;
+    }
+
+    private int originId;
     private int audit;
     private String author;
     private boolean canEdit;

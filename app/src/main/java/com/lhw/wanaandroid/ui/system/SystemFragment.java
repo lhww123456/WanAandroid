@@ -2,7 +2,6 @@ package com.lhw.wanaandroid.ui.system;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,6 +11,8 @@ import com.lhw.wanaandroid.bean.Children;
 import com.lhw.wanaandroid.bean.TreeData;
 import com.lhw.wanaandroid.ui.base.BaseFragment;
 import com.lhw.wanaandroid.ui.system.adapter.SystemRecycleViewAdapter;
+import com.lhw.wanaandroid.ui.system.detail.SystemArticleActivity;
+import com.lhw.wanaandroid.util.ToastUtil;
 import com.scwang.smart.refresh.footer.ClassicsFooter;
 import com.scwang.smart.refresh.header.ClassicsHeader;
 import com.scwang.smart.refresh.layout.api.RefreshLayout;
@@ -54,8 +55,6 @@ public class SystemFragment extends BaseFragment implements SystemContract.ISyst
             }
         });
 
-
-
         recyclerView = find(R.id.tree_recycleView);
 
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
@@ -81,7 +80,7 @@ public class SystemFragment extends BaseFragment implements SystemContract.ISyst
 
     @Override
     public void getFailure(Throwable throwable) {
-
+        ToastUtil.showToast("遇到了问题哦~~~~");
     }
 
     @Override
@@ -90,6 +89,14 @@ public class SystemFragment extends BaseFragment implements SystemContract.ISyst
         Bundle b = new Bundle();
         b.putSerializable("mtree", mTree);
         intent.putExtras(b);
+        startActivity(intent);
+    }
+
+    @Override
+    public void onItemClick(Children data, TreeData mTree) {
+        Intent intent = new Intent(getActivity(), SystemArticleActivity.class);
+        intent.putExtra("mtree",mTree);
+        intent.putExtra("childdata",data);
         startActivity(intent);
     }
 

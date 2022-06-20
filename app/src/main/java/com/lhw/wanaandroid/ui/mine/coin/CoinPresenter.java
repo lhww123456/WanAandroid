@@ -2,12 +2,9 @@ package com.lhw.wanaandroid.ui.mine.coin;
 
 import android.util.Log;
 
-import com.lhw.wanaandroid.bean.BaseBean;
+import com.lhw.wanaandroid.bean.BaseResponse;
 import com.lhw.wanaandroid.bean.Coin;
 import com.lhw.wanaandroid.bean.CoinBean;
-import com.lhw.wanaandroid.bean.CoinRankBean;
-
-import java.util.List;
 
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.functions.Consumer;
@@ -27,9 +24,9 @@ public class CoinPresenter implements CoinContract.ICoinPresenter {
         coinModel.getMyCoinList(page)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<BaseBean<CoinBean>>() {
+                .subscribe(new Consumer<BaseResponse<CoinBean>>() {
                     @Override
-                    public void accept(BaseBean<CoinBean> coinDataBeans) throws Throwable {
+                    public void accept(BaseResponse<CoinBean> coinDataBeans) throws Throwable {
                         Log.d("TAG", "获取积分成功: "+coinDataBeans.toString());
                         coinView.getMyCoinListSuccess(coinDataBeans.getData().getDatas());
                     }
@@ -48,9 +45,9 @@ public class CoinPresenter implements CoinContract.ICoinPresenter {
         coinModel.getMyCoinCount()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<BaseBean<Coin>>() {
+                .subscribe(new Consumer<BaseResponse<Coin>>() {
                     @Override
-                    public void accept(BaseBean<Coin> coinBaseBean) throws Throwable {
+                    public void accept(BaseResponse<Coin> coinBaseBean) throws Throwable {
                         coinView.getMyCoinCountSuccess(coinBaseBean);
                     }
                 }, new Consumer<Throwable>() {

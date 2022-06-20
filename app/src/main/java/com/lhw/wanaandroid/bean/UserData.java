@@ -4,19 +4,6 @@ import java.util.List;
 
 public class UserData {
 
-    /**
-     * Copyright 2022 bejson.com
-     */
-
-
-
-    /**
-     * Auto-generated: 2022-06-01 9:58:7
-     *
-     * @author bejson.com (i@bejson.com)
-     * @website http://www.bejson.com/java2pojo/
-     */
-
 
     private boolean admin;
     private List<String> chapterTops;
@@ -135,5 +122,24 @@ public class UserData {
     public String getUsername() {
         return username;
     }
+
+    @Override
+    public String toString() {
+        return "UserData{" +
+                "admin=" + admin +
+                ", chapterTops=" + chapterTops +
+                ", coinCount=" + coinCount +
+                ", collectIds=" + collectIds +
+                ", email='" + email + '\'' +
+                ", icon='" + icon + '\'' +
+                ", id=" + id +
+                ", nickname='" + nickname + '\'' +
+                ", password='" + password + '\'' +
+                ", publicName='" + publicName + '\'' +
+                ", token='" + token + '\'' +
+                ", type=" + type +
+                ", username='" + username + '\'' +
+                '}';
     }
+}
 

@@ -1,6 +1,6 @@
 package com.lhw.wanaandroid.ui.system;
 
-import com.lhw.wanaandroid.bean.BaseBean;
+import com.lhw.wanaandroid.bean.BaseResponse;
 import com.lhw.wanaandroid.bean.TreeData;
 
 import java.util.List;
@@ -16,7 +16,7 @@ public interface SystemContract {
 
     interface ISystemModel {
 
-        Observable<BaseBean<List<TreeData>>> getSystemData();
+        Observable<BaseResponse<List<TreeData>>> getSystemData();
 
     }
 

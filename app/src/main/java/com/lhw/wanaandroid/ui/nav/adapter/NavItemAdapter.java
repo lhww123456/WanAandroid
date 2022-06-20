@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.lhw.wanaandroid.R;
 import com.lhw.wanaandroid.bean.ArticleDetail;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class NavItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnClickListener {
@@ -30,14 +29,14 @@ public class NavItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_flex_item_nav, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_nav_item_, parent, false);
         view.setOnClickListener(this);
-        return new ItemButtonHolder(view);
+        return new ItemFlexHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        ItemButtonHolder itemButtonHolder =(ItemButtonHolder) holder;
+        ItemFlexHolder itemButtonHolder =(ItemFlexHolder) holder;
         itemButtonHolder.textView.setText(navDetails.get(position).getTitle());
     }
 
@@ -57,11 +56,11 @@ public class NavItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         }
     }
 
-    class ItemButtonHolder extends RecyclerView.ViewHolder{
+    class ItemFlexHolder extends RecyclerView.ViewHolder{
 
         private TextView textView;
 
-        public ItemButtonHolder(@NonNull View itemView) {
+        public ItemFlexHolder(@NonNull View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.item_recycler_text);
         }

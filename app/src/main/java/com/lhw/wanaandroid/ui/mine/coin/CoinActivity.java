@@ -3,15 +3,12 @@ package com.lhw.wanaandroid.ui.mine.coin;
 
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-
 import androidx.appcompat.widget.AppCompatTextView;
-import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.lhw.wanaandroid.ui.mine.coin.adapter.*;
 import com.lhw.wanaandroid.R;
-import com.lhw.wanaandroid.bean.BaseBean;
+import com.lhw.wanaandroid.bean.BaseResponse;
 import com.lhw.wanaandroid.bean.Coin;
 import com.lhw.wanaandroid.bean.CoinBean;
 import com.lhw.wanaandroid.ui.base.BaseActivity;
@@ -61,7 +58,7 @@ public class CoinActivity extends BaseActivity implements CoinContract.ICoinView
     }
 
     @Override
-    public void getMyCoinCountSuccess(BaseBean<Coin> data) {
+    public void getMyCoinCountSuccess(BaseResponse<Coin> data) {
 
     }
 

@@ -1,7 +1,7 @@
 package com.lhw.wanaandroid.ui.question;
 
 import com.lhw.wanaandroid.bean.Articles;
-import com.lhw.wanaandroid.bean.BaseBean;
+import com.lhw.wanaandroid.bean.BaseResponse;
 import com.lhw.wanaandroid.network.RetrofitClient;
 import com.lhw.wanaandroid.network.WanAndroidService;
 
@@ -13,7 +13,7 @@ import io.reactivex.rxjava3.core.Observable;
  */
 public class QuestionModel implements QuestionContract.IQuestionModel {
     @Override
-    public Observable<BaseBean<Articles>> getQuestionData(int page) {
+    public Observable<BaseResponse<Articles>> getQuestionData(int page) {
         return RetrofitClient.getInstance().getService(WanAndroidService.class)
                 .getQuestionData(page);
     }

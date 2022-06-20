@@ -1,51 +1,36 @@
 package com.lhw.wanaandroid.bean;
 
+/**
+ * 实体基类
+ * Created by 康栋普 on 2018/2/1.
+ */
+
 public class BaseBean<T> {
     /**
-     * Copyright 2022 bejson.com
+     * 服务器返回的错误码
      */
-
+    public int errorCode;
     /**
-     * Auto-generated: 2022-06-01 9:58:7
-     *
-     * @author bejson.com (i@bejson.com)
-     * @website http://www.bejson.com/java2pojo/
+     * 服务器返回的成功或失败的提示
      */
+    public String errorMsg;
+    /**
+     * 服务器返回的数据
+     */
+    public T data;
 
-
-        private T data;
-        private int errorCode;
-        private String errorMsg;
-
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
+    public BaseBean(int errorCode, String errorMsg, T data) {
+        this.errorCode = errorCode;
+        this.errorMsg = errorMsg;
         this.data = data;
     }
 
-    public void setErrorCode(int errorCode) {
-            this.errorCode = errorCode;
-        }
-        public int getErrorCode() {
-            return errorCode;
-        }
-
-        public void setErrorMsg(String errorMsg) {
-            this.errorMsg = errorMsg;
-        }
-        public String getErrorMsg() {
-            return errorMsg;
-        }
-
     @Override
     public String toString() {
-        return "BaseResponse{" +
-                "datas=" + data +
-                ", errorCode=" + errorCode +
+        return "BaseBean{" +
+                "errorCode=" + errorCode +
                 ", errorMsg='" + errorMsg + '\'' +
+                ", data=" + data +
                 '}';
     }
 }
-

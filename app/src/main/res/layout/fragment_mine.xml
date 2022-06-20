@@ -27,13 +27,13 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_launcher_round"/>
             <TextView
-                android:id="@+id/tv_name"
+                android:id="@+id/login_go_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textColor="@color/white"
                 android:textSize="25dp"
-                android:text="@string/login_go"/>
+                android:text="去登录"/>
             <TextView
                 android:id="@+id/login_null"
                 android:layout_width="wrap_content"
@@ -81,12 +81,12 @@
                 android:textSize="@dimen/text_content" />
 
             <TextView
-                android:id="@+id/tv_coin"
+                android:id="@+id/tv_coin1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
                 android:singleLine="true"
-                android:text="10"
+                android:text="520"
                 android:textColor="#03A9F4"
                 android:textSize="@dimen/text_notes"/>
 
@@ -174,7 +174,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/ll_read_later"
+            android:id="@+id/ll_book"
             android:layout_width="match_parent"
             android:layout_height="40dp"
 
@@ -211,7 +211,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/ll_read_record"
+            android:id="@+id/ll_history"
             android:layout_width="match_parent"
             android:layout_height="40dp"
 

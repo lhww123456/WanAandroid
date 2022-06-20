@@ -3,7 +3,7 @@ package com.lhw.wanaandroid.ui.home;
 import com.lhw.wanaandroid.bean.ArticleDetail;
 import com.lhw.wanaandroid.bean.Articles;
 import com.lhw.wanaandroid.bean.BannerData;
-import com.lhw.wanaandroid.bean.BaseBean;
+import com.lhw.wanaandroid.bean.BaseResponse;
 
 import java.util.List;
 
@@ -25,9 +25,9 @@ public  class HomePresenter implements HomeContract.IHomePresenter {
         homeModel.getBannerData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<BaseBean<List<BannerData>>>() {
+                .subscribe(new Consumer<BaseResponse<List<BannerData>>>() {
                     @Override
-                    public void accept(BaseBean<List<BannerData>> listBannerResponse) throws Throwable {
+                    public void accept(BaseResponse<List<BannerData>> listBannerResponse) throws Throwable {
 
                         homeView.getBannerSuccess(listBannerResponse.getData());
                     }
@@ -40,13 +40,32 @@ public  class HomePresenter implements HomeContract.IHomePresenter {
     }
 
     @Override
+    public void getTopData() {
+//        homeModel.getHomeTopList() .subscribeOn(Schedulers.io())
+//                .observeOn(AndroidSchedulers.mainThread())
+//                .subscribe(new Consumer<BaseResponse<Articles>>() {
+//                    @Override
+//                    public void accept(BaseResponse<Articles> articlesBaseResponse) throws Throwable {
+//                        Articles data = articlesBaseResponse.getData();
+//                        List<ArticleDetail> list = data.getDatas();
+//                        homeView.getTopArticleSuccess(list);
+//                    }
+//                }, new Consumer<Throwable>() {
+//                    @Override
+//                    public void accept(Throwable throwable) throws Throwable {
+//                        homeView.getFailure(throwable);
+//                    }
+//                });
+    }
+
+    @Override
     public void getAarticleData(int page) {
         homeModel.getArticleData(page)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<BaseBean<Articles>>() {
+                .subscribe(new Consumer<BaseResponse<Articles>>() {
                     @Override
-                    public void accept(BaseBean<Articles> articlesBaseResponse) throws Throwable {
+                    public void accept(BaseResponse<Articles> articlesBaseResponse) throws Throwable {
                         Articles data = articlesBaseResponse.getData();
                         List<ArticleDetail> list = data.getDatas();
                         homeView.getArticleSuccess(list);
@@ -58,4 +77,38 @@ public  class HomePresenter implements HomeContract.IHomePresenter {
                     }
                 });
     }
+
+    @Override
+    public void collectArticle(int id) {
+        homeModel.collect(id).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<BaseResponse>() {
+                    @Override
+                    public void accept(BaseResponse baseBean) throws Throwable {
+
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Throwable {
+                        homeView.getFailure(throwable);
+                    }
+                });
+    }
+
+    @Override
+    public void unCollectArticle(int id) {
+        homeModel.uncollect(id).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Consumer<BaseResponse>() {
+                    @Override
+                    public void accept(BaseResponse baseBean) throws Throwable {
+
+                    }
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Throwable {
+                        homeView.getFailure(throwable);
+                    }
+                });
+    }
+
+
 }

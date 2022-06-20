@@ -1,7 +1,7 @@
 package com.lhw.wanaandroid.ui.mine.coin;
 
 
-import com.lhw.wanaandroid.bean.BaseBean;
+import com.lhw.wanaandroid.bean.BaseResponse;
 import com.lhw.wanaandroid.bean.Coin;
 import com.lhw.wanaandroid.bean.CoinBean;
 
@@ -18,13 +18,13 @@ public interface CoinContract {
     }
 
     interface ICoinModel{
-        Observable<BaseBean<Coin>> getMyCoinCount();
-        Observable<BaseBean<CoinBean>> getMyCoinList(int page);
+        Observable<BaseResponse<Coin>> getMyCoinCount();
+        Observable<BaseResponse<CoinBean>> getMyCoinList(int page);
     }
 
     interface ICoinView{
         void getMyCoinListSuccess(List<CoinBean.CoinDataBean> data);
-        void getMyCoinCountSuccess(BaseBean<Coin> data);
+        void getMyCoinCountSuccess(BaseResponse<Coin> data);
         void getFailure(Throwable throwable);
     }
 }

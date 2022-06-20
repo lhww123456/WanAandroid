@@ -2,11 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F5C6D5D6"
+    android:background="#C1E8FD"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:clipChildren="false">
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolBar"
         style="@style/ToolBarStyle"
@@ -45,7 +44,7 @@
             android:id="@+id/civ_icon"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            android:src="@drawable/splash"
+            android:src="@drawable/touxiang"
             android:layout_gravity="center"
             android:scaleType="centerCrop" />
         <TextView
@@ -55,8 +54,8 @@
             android:layout_below="@+id/civ_icon"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:text="刘昊文"
-            android:textColor="@color/white"
+            android:text="lhww"
+            android:textColor="@color/black"
             android:textSize="30dp" />
 
         <TextView
@@ -69,11 +68,27 @@
             android:gravity="center"
             android:paddingLeft="30dp"
             android:paddingRight="30dp"
-            android:text="不相信自己的人没有努力的价值"
-            android:textSize="20dp" />
+            android:text="业精于勤荒于嬉"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/tv_sign1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_name"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:paddingLeft="30dp"
+            android:paddingRight="30dp"
+            android:text="行成于思毁于随"
+            android:textSize="25dp" />
     </LinearLayout>
 
-
+    <ListView
+        android:id="@+id/list_view_mine"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
 
 </LinearLayout>

@@ -1,16 +1,19 @@
 package com.lhw.wanaandroid.network;
 
 
+import com.lhw.wanaandroid.bean.Article;
 import com.lhw.wanaandroid.bean.ArticleDetail;
 import com.lhw.wanaandroid.bean.Articles;
 import com.lhw.wanaandroid.bean.BannerData;
 import com.lhw.wanaandroid.bean.BaseBean;
+import com.lhw.wanaandroid.bean.BaseResponse;
 import com.lhw.wanaandroid.bean.Coin;
 import com.lhw.wanaandroid.bean.CoinBean;
 import com.lhw.wanaandroid.bean.NavCategoryBean;
+import com.lhw.wanaandroid.bean.PageListData;
+import com.lhw.wanaandroid.bean.ShareData;
 import com.lhw.wanaandroid.bean.TreeData;
-import com.lhw.wanaandroid.login.bean.BaseResponse;
-import com.lhw.wanaandroid.login.bean.UserData;
+import com.lhw.wanaandroid.bean.UserData;
 
 import java.util.List;
 
@@ -25,10 +28,8 @@ import retrofit2.http.Query;
 public interface WanAndroidService {
     /**
      * 登录
-     *
      * @param username 用户名
      * @param password 密码
-     * @return
      */
     @FormUrlEncoded
     @POST(UrlConstainer.LOGIN)
@@ -36,100 +37,88 @@ public interface WanAndroidService {
 
     /**
      * 注册
-     *
      * @param username   用户名
      * @param password   密码
      * @param repassword 重复密码
-     * @return
      */
     @FormUrlEncoded
     @POST(UrlConstainer.REGISTER)
     Observable<BaseResponse<UserData>> register(@Field("username") String username, @Field("password") String password, @Field("repassword") String repassword);
 
+    //退出登录
     @GET("user/logout/json")
-    Observable<BaseResponse<UserData>> logout();
+    Observable<BaseResponse> logout();
 
     /**
      * 轮播图
-     *
-     * @return
      */
     @GET(UrlConstainer.MAIN_BANNER)
-    Observable<BaseBean<List<BannerData>>> getBanner();
+    Observable<BaseResponse<List<BannerData>>> getBanner();
 
     /**
      * 首页置顶列表
-     *
-     * @return
      */
     @GET(UrlConstainer.HOME_TOP_LIST)
-    Observable<BaseBean<List<ArticleDetail>>> getHomeTopList();
+    Observable<BaseResponse<Articles>> getHomeTopList();
 
     /**
      * 首页文章列表
-     *
-     * @return
      */
     @GET(UrlConstainer.HOME_LIST)
-    Observable<BaseBean<Articles>> getArticleData(@Path("page") int page);
+    Observable<BaseResponse<Articles>> getArticleData(@Path("page") int page);
 
     /**
      * 收藏文章
      */
     @POST(UrlConstainer.COLLECT_ARTICLE)
-    Observable<BaseBean> collectArticle(@Path("id") int id);
+    Observable<BaseResponse<Articles>> collectArticle(@Path("id") int id);
 
     /**
      * 取消收藏文章
      */
     @POST(UrlConstainer.UNCOLLECT_ARTICLE)
-    Observable<BaseBean> unCollectArticle(@Path("id") int id);
+    Observable<BaseResponse<Articles>> unCollectArticle(@Path("id") int id);
 
     //问答
-    @GET("wenda/list/{page}/json ")
-    Observable<BaseBean<Articles>> getQuestionData(@Path("page") int page);
+    @GET(UrlConstainer.WENDA)
+    Observable<BaseResponse<Articles>> getQuestionData(@Path("page") int page);
 
     /**
      * 知识体系分类
      */
     @GET(UrlConstainer.TREE)
-    Observable<BaseBean<List<TreeData>>> getTree();
+    Observable<BaseResponse<List<TreeData>>> getTree();
 
     /**
      * 知识体系列表
-     *
      * @param cid
      * @param page
-     * @return
      */
     @GET(UrlConstainer.TREE_LIST)
-    Observable<BaseBean<Articles>> getTreeList(@Path("page") int page, @Query("cid") int cid);
-
+    Observable<BaseResponse<Articles>> getTreeList(@Path("page") int page, @Query("cid") int cid);
 
     /**
      * 收藏的文章列表
-     *
      * @param page
      * @return
      */
     @GET(UrlConstainer.COLLECT_ARTICLE_LIST)
-    Observable<BaseBean<Articles>> getCollectArticleList(@Path("page") int page);
+    Observable<BaseResponse<Articles>> getCollectArticleList(@Path("page") int page);
 
     /**
      * 删除收藏的文章
-     *
-     * @param id
+     * @param page
      * @return
      */
     @FormUrlEncoded
     @POST(UrlConstainer.DELETE_COLLECT_ARTICLE)
-    Observable<BaseBean<String>> deleteCollectArticle(@Path("id") int id, @Field("originId") int originId);
+    Observable<BaseResponse<Articles>> deleteCollectArticle(@Path("id") int page, @Field("originId") int originId);
 
     /**
      * 获取个人积分，需要登录后访问
      */
     @GET(UrlConstainer.COIN)
-    Observable<BaseBean<Coin>> getMyCoinCount();
+    Observable<BaseResponse<Coin>> getMyCoinCount();
 
     /**
      * 获取个人积分获取列表
@@ -137,10 +126,30 @@ public interface WanAndroidService {
      * 需要登录后访问
      */
     @GET(UrlConstainer.COINLIST)
-    Observable<BaseBean<CoinBean>> getMyCoinList(@Path("page") int page);
+    Observable<BaseResponse<CoinBean>> getMyCoinList(@Path("page") int page);
 
+    //分享文章
+    @POST(UrlConstainer.SHAREARTICLE)
+    @FormUrlEncoded
+    Observable<BaseResponse> shareArticle(@Field("title")String title, @Field("link")String link);
 
-//     * 常用网站
+    //分享文章列表
+    @GET(UrlConstainer.SHAREARTICLELIST)
+    Observable<BaseResponse<ShareData>> shareArticleList(@Path("page") int page);
+
+    // 常用网站
     @GET(UrlConstainer.NAVI)
-    Observable<BaseBean<List<NavCategoryBean>>> getNavCategoryData();
+    Observable<BaseResponse<List<NavCategoryBean>>> getNavCategoryData();
+
+    /**
+     * 搜索文章
+     *
+     * @param page
+     * @param keyword
+     * @return
+     */
+    @FormUrlEncoded
+    @POST(UrlConstainer.SEARCH)
+    Observable<BaseBean<PageListData<Article>>> search(@Path("page") int page, @Field("k") String keyword);
+
 }

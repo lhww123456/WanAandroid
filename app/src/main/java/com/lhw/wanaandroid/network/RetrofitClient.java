@@ -20,9 +20,34 @@ public class RetrofitClient {
     private static volatile RetrofitClient mInstance;
     public static String COOKIE;
     private Retrofit retrofit;
-    private RetrofitClient() {
+    private static volatile ClearableCookieJar mcookieJar;
+    private static volatile SharedPrefsCookiePersistor mSharedPrefsCookiePersistor;
 
+
+    public static SharedPrefsCookiePersistor getSharedPrefsCookiePersistor() {
+        if (mSharedPrefsCookiePersistor == null) {
+            synchronized (RetrofitClient.class) {
+                if (mSharedPrefsCookiePersistor == null) {
+                    mSharedPrefsCookiePersistor = new SharedPrefsCookiePersistor(MyApplication.getGloableContext());
+                }
+            }
+        }
+        return mSharedPrefsCookiePersistor;
     }
+
+    public static ClearableCookieJar getClearableCookieJar() {
+        if (mcookieJar == null) {
+            synchronized (RetrofitClient.class) {
+                if (mcookieJar == null) {
+                    mcookieJar = new PersistentCookieJar(new SetCookieCache(),
+                            RetrofitClient.getSharedPrefsCookiePersistor());
+                }
+            }
+        }
+
+        return mcookieJar;
+    }
+
     /**
      * 双重加锁
      *
@@ -43,24 +68,15 @@ public class RetrofitClient {
         return getRetrofit().create(cls);
     }
 
-//    OkHttpClient okHttpClient = new OkHttpClient.Builder()
-//            //链接超时
-//            .connectTimeout(10, TimeUnit.SECONDS)
-//            //读取超时
-//            .readTimeout(10, TimeUnit.SECONDS)
-//            //缓存
-//
-//            //添加Cookie拦截器
-//            .addInterceptor(new SaveCookieInterceptor())
-//            .addInterceptor(new LoadCookieInterceptor())
-//            .build();
-
     private synchronized Retrofit getRetrofit() {
         if (retrofit == null) {
-            ClearableCookieJar cookieJar =
-                    new PersistentCookieJar(new SetCookieCache(),
-                            new SharedPrefsCookiePersistor(MyApplication.getGloableContext()));
-            OkHttpClient okHttpClient = new OkHttpClient.Builder().cookieJar(cookieJar).build();
+//            ClearableCookieJar cookieJar =
+//                    new PersistentCookieJar(new SetCookieCache(),
+//                            new SharedPrefsCookiePersistor(MyApplication.getGloableContext()));
+//            OkHttpClient okHttpClient = new OkHttpClient.Builder()
+//                    .cookieJar(cookieJar).build();
+            OkHttpClient okHttpClient = new OkHttpClient.Builder()
+                    .cookieJar(RetrofitClient.getClearableCookieJar()).build();
             //创建Retrofit对象
             retrofit = new Retrofit.Builder()
                     .baseUrl(UrlConstainer.baseUrl)

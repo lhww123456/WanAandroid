@@ -11,7 +11,7 @@ public class Children implements Serializable {
 
     private String name;
 
-    private  int parentChapterId;
+    private int parentChapterId;
 
     private boolean userControlSetTop;
 

@@ -1,7 +1,7 @@
 package com.lhw.wanaandroid.ui.nav;
 
 
-import com.lhw.wanaandroid.bean.BaseBean;
+import com.lhw.wanaandroid.bean.BaseResponse;
 import com.lhw.wanaandroid.bean.NavCategoryBean;
 
 import java.util.List;
@@ -19,7 +19,7 @@ public interface NavContract {
     }
 
     interface INavModel {
-        Observable<BaseBean<List<NavCategoryBean>>> getNavData();
+        Observable<BaseResponse<List<NavCategoryBean>>> getNavData();
     }
 
     interface INavView  {

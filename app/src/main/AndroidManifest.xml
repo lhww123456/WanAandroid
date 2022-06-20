@@ -16,7 +16,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WanAandroid"
+        android:usesCleartextTraffic="true"
         tools:targetApi="31">
+        <activity
+            android:name=".ui.mine.setting.SettingActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.mine.myshare.ShareActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.mine.coin.CoinActivity"
             android:exported="false" />
@@ -27,11 +34,13 @@
             android:name=".ui.mine.about.AboutMeActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.system.SystemArticleActivity"
+            android:name=".ui.system.detail.SystemArticleActivity"
             android:exported="false" />
         <activity
             android:name=".WebViewActivity"
             android:exported="false" />
+        <activity android:name=".ui.mine.mycollection.ArticleCollectionActivity" />
+        <activity android:name=".ui.mine.myshare.add.ShareAddActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -42,6 +51,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".login.LoginActivity" />
+        <activity android:name=".ui.mine.open.OpenSourceActivity" />
     </application>
 
 </manifest>

@@ -1,6 +1,6 @@
 package com.lhw.wanaandroid.ui.system;
 
-import com.lhw.wanaandroid.bean.BaseBean;
+import com.lhw.wanaandroid.bean.BaseResponse;
 import com.lhw.wanaandroid.bean.TreeData;
 import com.lhw.wanaandroid.network.RetrofitClient;
 import com.lhw.wanaandroid.network.WanAndroidService;
@@ -16,7 +16,7 @@ import io.reactivex.rxjava3.core.Observable;
  */
 public class SystemModel implements SystemContract.ISystemModel {
     @Override
-    public Observable<BaseBean<List<TreeData>>> getSystemData() {
+    public Observable<BaseResponse<List<TreeData>>> getSystemData() {
         return RetrofitClient.getInstance().getService(WanAndroidService.class)
                 .getTree();
     }

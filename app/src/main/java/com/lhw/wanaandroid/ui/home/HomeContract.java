@@ -4,7 +4,7 @@ package com.lhw.wanaandroid.ui.home;
 import com.lhw.wanaandroid.bean.ArticleDetail;
 import com.lhw.wanaandroid.bean.Articles;
 import com.lhw.wanaandroid.bean.BannerData;
-import com.lhw.wanaandroid.bean.BaseBean;
+import com.lhw.wanaandroid.bean.BaseResponse;
 
 import java.util.List;
 
@@ -19,15 +19,26 @@ public interface HomeContract {
     interface IHomePresenter {
 
         void getBannerData();
+        void getTopData();
         void getAarticleData(int page);
+
+        void collectArticle(int id);
+
+        void unCollectArticle(int id);
     }
 
     interface IHomeModel {
         /**
          * @return banner数据, article数据
          */
-        Observable<BaseBean<List<BannerData>>> getBannerData();
-        Observable<BaseBean<Articles>> getArticleData(int page);
+        Observable<BaseResponse<List<BannerData>>> getBannerData();
+        Observable<BaseResponse<Articles>> getArticleData(int page);
+
+        Observable<BaseResponse<Articles>> getHomeTopList();
+
+        Observable<BaseResponse<Articles>> collect(int id);
+        Observable<BaseResponse<Articles>> uncollect(int id);
+
     }
 
     interface IHomeView {
@@ -37,8 +48,11 @@ public interface HomeContract {
         void getBannerSuccess(List<BannerData> banners);
 
         void getArticleSuccess(List<ArticleDetail> datas);
+        void getTopArticleSuccess(List<ArticleDetail> datas);
+
 
         void getFailure(Throwable throwable);
+
 
     }
 }

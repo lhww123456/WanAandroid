@@ -73,7 +73,7 @@ public class UrlConstainer {
     /**
      * 常用网站
      */
-    public static final String FRIEND = "friend/json";
+    public static final String WENDA = "wenda/list/{page}/json";
 
 
     /**
@@ -92,11 +92,6 @@ public class UrlConstainer {
     public static final String CHAPTER_LIST = "wxarticle/list/{id}/{page}/json";
 
     /**
-     * 项目分类
-     */
-    public static final String PROJECT_CATE = "project/tree/json";
-
-    /**
      * 获取个人积分，需要登录后访问
      */
     public static final String COIN = "lg/coin/userinfo/json";
@@ -105,6 +100,16 @@ public class UrlConstainer {
      * 获取个人积分获取列表，需要登录后访问
      */
     public static final String COINLIST = "lg/coin/list/{page}/json";
+
+    /**
+     * 分享文章
+     */
+    public static final String SHAREARTICLE = "lg/user_article/add/json";
+
+    /**
+     * 分享文章
+     */
+    public static final String SHAREARTICLELIST = "user/lg/private_articles/{page}/json";
 
 
 }

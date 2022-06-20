@@ -2,7 +2,7 @@ package com.lhw.wanaandroid.ui.nav;
 
 import android.util.Log;
 
-import com.lhw.wanaandroid.bean.BaseBean;
+import com.lhw.wanaandroid.bean.BaseResponse;
 import com.lhw.wanaandroid.bean.NavCategoryBean;
 
 import java.util.List;
@@ -25,9 +25,9 @@ public  class NavPresenter implements NavContract.INavPresenter {
         navModel.getNavData()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<BaseBean<List<NavCategoryBean>>>() {
+                .subscribe(new Consumer<BaseResponse<List<NavCategoryBean>>>() {
                                @Override
-                               public void accept(BaseBean<List<NavCategoryBean>> navCategoryBeanNavBean) throws Throwable {
+                               public void accept(BaseResponse<List<NavCategoryBean>> navCategoryBeanNavBean) throws Throwable {
                                    navView.getNavSuccess(navCategoryBeanNavBean.getData());
 
                                }
@@ -36,7 +36,7 @@ public  class NavPresenter implements NavContract.INavPresenter {
                             @Override
                             public void accept(Throwable throwable) throws Throwable {
                                 navView.getFailure(throwable);
-                                Log.e("lhww", "错误: " + throwable.getLocalizedMessage());
+//                                Log.e("lhww", "错误: " + throwable.getLocalizedMessage());
 
                             }
                         });

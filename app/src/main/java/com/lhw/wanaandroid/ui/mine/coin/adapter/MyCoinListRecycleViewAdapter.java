@@ -10,7 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.lhw.wanaandroid.R;
-import com.lhw.wanaandroid.bean.ArticleDetail;
 import com.lhw.wanaandroid.bean.CoinBean;
 
 import java.util.List;
@@ -33,7 +32,7 @@ public class MyCoinListRecycleViewAdapter extends RecyclerView.Adapter {
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view1 = LayoutInflater.from(parent.getContext()).inflate(R.layout.icon_item, parent, false);
+        View view1 = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_coin, parent, false);
         return new CoinList(view1);
     }
 
@@ -47,7 +46,7 @@ public class MyCoinListRecycleViewAdapter extends RecyclerView.Adapter {
 
         coinListholder.tv_desc.setText(substringdesc);
         coinListholder.tv_time.setText(substringtime);
-        coinListholder.tv_coin_int.setText(String.valueOf(coinDataBean.getCoinCount()));
+        coinListholder.tv_coin_int.setText("+  " + String.valueOf(coinDataBean.getCoinCount()));
     }
 
     @Override

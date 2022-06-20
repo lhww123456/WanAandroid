@@ -9,13 +9,15 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.flexbox.FlexDirection;
+import com.google.android.flexbox.FlexboxLayoutManager;
 import com.lhw.wanaandroid.R;
 import com.lhw.wanaandroid.bean.Children;
 import com.lhw.wanaandroid.bean.TreeData;
 
 import java.util.List;
 
-public class SystemRecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnClickListener {
+public class SystemRecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnClickListener,SystemItemAdapter.OnItemClickListener {
     private Context context;
     private List<TreeData> data;
     private RecyclerView recyclerView;
@@ -30,7 +32,7 @@ public class SystemRecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view2 = LayoutInflater.from(parent.getContext()).inflate(R.layout.system_recycleview_item, parent, false);
+        View view2 = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_tree_first, parent, false);
         view2.setOnClickListener(this);
         return new TabHolder(view2);
     }
@@ -41,10 +43,17 @@ public class SystemRecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.
         List<Children> childrenBean = data.get(position).getChildren();
         TabHolder tabHolder = (TabHolder) holder;
         tabHolder.tv_system_title.setText(data.get(position).getName());
-        tabHolder.tv_system_content.setText("");
-        for (Children child : data.get(position).getChildren()) {
-            tabHolder.tv_system_content.append(child.getName() + "     ");
-        }
+
+
+        SystemItemAdapter systemItemAdapter
+                = new SystemItemAdapter(tabHolder.recyclerView2, childrenBean,position);
+        tabHolder.recyclerView2.setAdapter(systemItemAdapter);
+        systemItemAdapter.setOnItemClickListener(this);
+//
+//        tabHolder.tv_system_content.setText("");
+//        for (Children child : data.get(position).getChildren()) {
+//            tabHolder.tv_system_content.append(child.getName() + "     ");
+//        }
     }
 
     @Override
@@ -60,25 +69,43 @@ public class SystemRecycleViewAdapter extends RecyclerView.Adapter<RecyclerView.
 
     class TabHolder extends RecyclerView.ViewHolder {
         private TextView tv_system_title, tv_system_content;
+        private RecyclerView recyclerView2;
 
         public TabHolder(@NonNull View itemView) {
             super(itemView);
             tv_system_title = itemView.findViewById(R.id.system_tv_title);
-            tv_system_content = itemView.findViewById(R.id.system_tv_content);
+            recyclerView2 = itemView.findViewById(R.id.item_text_recyclerview);
+
+            FlexboxLayoutManager flexboxLayoutManager = new FlexboxLayoutManager(context);
+            //从左段开始对齐排列
+            flexboxLayoutManager.setFlexDirection(FlexDirection.ROW);
+//            GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 3);
+//            gridLayoutManager.setAutoMeasureEnabled(true);
+            recyclerView2.setLayoutManager(flexboxLayoutManager);
+
         }
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.mListener = listener;
     }
+
     @Override
     public void onClick(View v) {
         if (mListener != null) {
             int id = recyclerView.getChildAdapterPosition(v);
-            mListener.onItemClick(data.get(id),id);
+            mListener.onItemClick(data.get(id), id);
         }
     }
+
     public interface OnItemClickListener {
-        void onItemClick(TreeData bean,int position);
+        void onItemClick(TreeData bean, int position);
+
+        void onItemClick(Children data, TreeData treeData);
+
+    }
+    @Override
+    public void onItemClick(Children data, int id) {
+        mListener.onItemClick(data,this.data.get(id));
     }
 }

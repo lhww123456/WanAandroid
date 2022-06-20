@@ -7,14 +7,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.lhw.wanaandroid.R;
+import com.lhw.wanaandroid.bean.UserData;
 import com.lhw.wanaandroid.login.LoginActivity;
-import com.lhw.wanaandroid.login.bean.UserData;
 import com.lhw.wanaandroid.ui.base.BaseFragment;
 
 
-public class RegisterFragment extends BaseFragment implements RegisterContract.RegisterView, View.OnClickListener {
+public class RegisterFragment extends BaseFragment implements RegisterContract.IRegisterView, View.OnClickListener {
 
-    private Button button;
     private EditText et_uname,et_pwd,et_repwd; //获取用户名密码输入框
     private String uname, pwd,repwd;//获取用户名,密码
     private Button btn_register;
@@ -29,7 +28,6 @@ public class RegisterFragment extends BaseFragment implements RegisterContract.R
         Toast.makeText(getContext(), "注册成功", Toast.LENGTH_SHORT).show();
         getActivity().finish();
 
-
     }
     @Override
     public void OnRegisterError(Throwable throwable) {
@@ -39,16 +37,15 @@ public class RegisterFragment extends BaseFragment implements RegisterContract.R
     @Override
     public void onClick(View view) {
 
-        String username = et_uname.getText().toString().trim();
-        String password = et_pwd.getText().toString().trim();
-        String repassword = et_repwd.getText().toString().trim();
-        if (username == null || password == null || repassword == null) {
+        uname = et_uname.getText().toString().trim();
+        pwd = et_pwd.getText().toString().trim();
+        repwd = et_repwd.getText().toString().trim();
+        if (uname == null || pwd == null || repwd == null) {
             Toast.makeText(getContext(), "用户名或密码不可为空", Toast.LENGTH_SHORT).show();
-        } else if (password == repassword) {
-            Toast.makeText(getContext(), "两个密码不一致", Toast.LENGTH_SHORT).show();
+        } else if (pwd == repwd) {
+            Toast.makeText(getContext(), "两次输入的密码不一致", Toast.LENGTH_SHORT).show();
         } else {
-            registerPresenter.register(username, password, repassword);
-
+            registerPresenter.register(uname, pwd, repwd);
         }
 
     }
@@ -65,6 +62,7 @@ public class RegisterFragment extends BaseFragment implements RegisterContract.R
         et_repwd =  find(R.id.register_input_repwd);
         btn_register =  find(R.id.btn_register);
         btn_register.setOnClickListener(this);
+        registerPresenter = new RegisterPresenter(this);
 
     }
 }
